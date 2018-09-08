@@ -1,0 +1,20 @@
+# Folder
+uploads/
+
+# Image
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.pdf
+
+# Video
+*.mp4
+*.mkv
+*.mov
+*.webm
+
+# Audio
+*.mp3
+*.aoc
+*.aac

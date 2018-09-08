@@ -4,7 +4,6 @@
         $arq = $_FILES['file'];
 
         $upFile = up($arq);
-        echo $upFile[0].'<br>'.$upFile[1];
     
         include_once './ddb.php';
 

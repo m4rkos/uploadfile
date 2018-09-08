@@ -16,9 +16,5 @@
         }
     }
 
-// Var for access to connection DB
+// Access to connection DB
     $acess = conn();
-
-    //print_r($acess->query('select * from sitebase'));
-
-

@@ -1,6 +1,6 @@
 <?php 
 
-    if (isset($_POST['up'])){
+    //if (isset($_POST['up'])){
         $arq = $_FILES['file'];
 
         $upFile = up($arq);
@@ -18,9 +18,9 @@
         $acess->query("INSERT into sitebase (nomeSite, urlBase, domin, opengraf, opengrafTypeFile, opengrafSize, opengrafOrigName) 
             values ('$site', '$url', '$domin', '$opg', '$opt', '$ops', '$opo')");
         
-        header('Location: ./show_list.php');   
+        #header('Location: ./show_list.php');   
 
-    }
+    //}
 
     function up($arq){
 

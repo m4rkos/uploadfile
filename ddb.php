@@ -5,7 +5,7 @@
         $db = 'site';
         $host = 'localhost';
         $usr = 'root';
-        $pass = 'M88212045$m';
+        $pass = '';
 
         $conn = new mysqli($host, $usr, $pass, $db);
         if ($conn == false){

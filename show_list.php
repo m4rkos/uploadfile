@@ -2,7 +2,7 @@
 
     include_once './ddb.php';
     
-    $res = $acess->query('select nomeSite, urlBase, domin, opengraf, opengrafTypeFile, opengrafSize, id from sitebase where opengraf <> "" ');
+    $res = $acess->query('select nomeSite, urlBase, domin, opengraf, opengrafTypeFile, opengrafSize, id from sitebase where opengraf <> "" and opengraf <> "NULL" ');
 
     $v = mysqli_num_rows($res);
 

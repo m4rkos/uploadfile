@@ -75,7 +75,7 @@ alter table sitebase add column id_file varchar(25);
 
 
 /*Logs*/
-create table log (
+create table log_change (
   id_ordem int(11) auto_increment primary key, 
   idLog varchar(25) NOT NULL, 
   cBy varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL, 

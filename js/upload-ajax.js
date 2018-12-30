@@ -3,12 +3,20 @@ $("form#data").submit(function(e) {
     var formData = new FormData(this);
 
     $.ajax({
-        url: './upload.php',
+        url: './upload.php?up=yes',
         type: 'POST',
         data: formData,
         success: function (data) {
             //alert(data)
-            $(".lista").load('./show_list.php'); 
+            if(data == 1){
+                $(".msg").html('<br><br><b>Escolha</b> um <b>arquivo para</b> fazer <b>upload</b><br><br>');
+                console.log('You cannot upload files of this type!');
+            }else{
+                $(".msg").html('');
+                $(".lista").load('./show_list.php');
+                $("#descri").val('');
+                $("#file").val('');
+            }
         },
         cache: false,
         contentType: false,

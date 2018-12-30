@@ -1,27 +1,39 @@
 <?php 
 
-    //if (isset($_POST['up'])){
-        $arq = $_FILES['file'];
-
-        $upFile = up($arq);
-    
-        include_once './ddb.php';
-
-        $url = $_SERVER['REQUEST_URI'];
-        $site = 'Teste Upload';
-        $domin = 'localhost';
-        $opg = $upFile[0];
-        $opt = $upFile[1];
-        $ops = $upFile[2];
-        $opo = $upFile[3];
-
-        $acess->query("INSERT into sitebase (nomeSite, urlBase, domin, opengraf, opengrafTypeFile, opengrafSize, opengrafOrigName) 
-            values ('$site', '$url', '$domin', '$opg', '$opt', '$ops', '$opo')");
+    if(isset($_GET['up']) and $_GET['up'] == 'yes'){
         
-        #header('Location: ./show_list.php');   
+        $arq = $_FILES['file'];
+        
+        $upFile = up($arq);
+        
+        if($upFile == "You cannot upload files of this type!"):
+            echo 1;
+            
+        else:
+            include_once './ddb.php';
 
-    //}
+            $url = $_SERVER['REQUEST_URI'];
+            $site = 'Teste Upload';
+            $domin = 'localhost';
+            $opg = $upFile[0];
+            $opt = $upFile[1];
+            $ops = $upFile[2];
+            $opo = $upFile[3];
 
+            $idlog = uniqid();
+
+            $acess->query("INSERT into sitebase (nomeSite, urlBase, domin, opengraf, opengrafTypeFile, opengrafSize, opengrafOrigName) 
+                values ('$site', '$url', '$domin', '$opg', '$opt', '$ops', '$opo')");
+            
+            $acess->query("INSERT INTO log_change (idLog, typeLog) VALUES ('$idlog', 'add')");
+
+
+        endif;
+
+    }else{
+        echo "<h2>Não possue acesso á essa àrea!</h2>";
+    }
+        
     function up($arq){
 
         $fName = $arq['name'];
@@ -58,6 +70,8 @@
                 echo 'There was an error uploading you file!';
             }
         }else{
-            echo "You cannot upload files of this type!";
+            $resp = 'You cannot upload files of this type!';
+            //echo $resp;
+            return $resp;
         }
     }

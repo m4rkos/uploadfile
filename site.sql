@@ -69,3 +69,12 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+/*Logs*/
+create table log (
+  id_ordem int(11) auto_increment primary key, 
+  idLog varchar(25) NOT NULL, 
+  cBy varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL, 
+  ct timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

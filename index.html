@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Upload Files</title>
+    <link rel="stylesheet" href="./css/style.css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,19 +12,23 @@
     
     <script src="./js/script-base.js"></script>
   </head>
-  <body onload="loadList()">
+  <body onload="loadList(); loadLogStatus()">
 
     <div class="container">
         <form id="data" method="POST" enctype="multipart/form-data" >
-            <input type="text" name="nome">
+            <input type="text" name="nome" id="descri">
             <input type="file" name="file" id="file">
             <button type="submit" name="up">
                 UPLOAD
             </button>
         </form>
     </div>
+    <div class="container text-center"><i class="msg"></i></div>
     <!--a href="./show_list.php">Listar</a-->
     <div class="container lista"></div>
+    <div class="container" style="position: fixed; bottom: 30px; right: 0; left: 0;">
+      <div class="text-right">ID: <b class="log_id ">loading ...</b></div>
+    </div>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

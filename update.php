@@ -14,8 +14,11 @@
         date_default_timezone_set('UTC');
         $dateAtual = date('Y-m-d H:i:s');
         
+        $idlog = uniqid();
+
         include_once './ddb.php';
-        $res = $acess->query("UPDATE sitebase set opengraf = '$vazio', opengrafOrigName = '$vazio', opengrafTypeFile = '$vazio', opengrafSize = 0, ut = '$dateAtual' where id = '$inf' ");
+        $res = $acess->query("UPDATE sitebase set opengraf = '$vazio', opengrafOrigName = '$vazio', opengrafTypeFile = '$vazio', opengrafSize = 0, ut = '$dateAtual', id_file = '$idlog' where id = '$inf' ");
+        $res = $acess->query("INSERT INTO log_change (idLog, typeLog) VALUES ('$idlog', 'del')");
 
         echo $file;
         //header('Location: ./show_list.php');   

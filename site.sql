@@ -70,6 +70,9 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+/*Add this*/
+alter table sitebase add column id_file varchar(25);
+
 
 /*Logs*/
 create table log (
@@ -78,3 +81,9 @@ create table log (
   cBy varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL, 
   ct timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Add this*/
+alter table log_change add column typeLog varchar(10);
+
+/*Create view for check changes*/
+CREATE VIEW site.vw_logUp AS SELECT id_ordem, idLog FROM log_change;

@@ -20,6 +20,8 @@
         $res = $acess->query("UPDATE sitebase set opengraf = '$vazio', opengrafOrigName = '$vazio', opengrafTypeFile = '$vazio', opengrafSize = 0, ut = '$dateAtual', id_file = '$idlog' where id = '$inf' ");
         $res = $acess->query("INSERT INTO log_change (idLog, typeLog) VALUES ('$idlog', 'del')");
 
+        setcookie('logC', $idlog ,time() + 86400);
+
         echo $file;
         //header('Location: ./show_list.php');   
     }    

@@ -27,6 +27,7 @@
             
             $acess->query("INSERT INTO log_change (idLog, typeLog) VALUES ('$idlog', 'add')");
 
+            setcookie('logC', $idlog ,time() + 86400);            
 
         endif;
 

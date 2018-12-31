@@ -45,14 +45,15 @@ else:
             $res = $r->buscarId($acess);
             $x = mysqli_fetch_row($res);
             
-            echo $x[1];
+            echo "y ".$x[1];
 
         }else{
-            echo $_COOKIE['logC'];
+            //print_r($ss);
+            echo "n ".$_COOKIE['logC'];
         }
 
     }else{
-        echo 1;
+        echo 10;
     }
     
 endif;

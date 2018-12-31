@@ -13,6 +13,7 @@ $("form#data").submit(function(e) {
                 console.log('You cannot upload files of this type!');
             }else{
                 $(".msg").html('');
+                
                 $(".lista").load('./show_list.php');
                 $("#descri").val('');
                 $("#file").val('');
